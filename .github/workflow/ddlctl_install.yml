@@ -1,0 +1,16 @@
+name: Install ddlctl
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install ddlctl
+      run: |
+        chmod +x scripts/install_ddlctl.sh
+        ./scripts/install_ddlctl.sh
+
+    - name: Verify
+      run: ddlctl version
